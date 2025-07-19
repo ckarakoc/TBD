@@ -1,6 +1,6 @@
 
 export default {
-  basePath: '/frontend-mentor/home',
+  basePath: '/FrontendMentorTBD/home',
   supportedLocales: {
   "en-US": ""
 },
