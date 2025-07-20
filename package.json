@@ -4,7 +4,11 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "npm run build:main && npm run build:app1 && npm run build:app2 && npm run flatten",
+    "build:main": "ng build main --configuration production",
+    "build:app1": "ng build app1 --configuration production",
+    "build:app2": "ng build app2 --configuration production",
+    "http-server": "http-server docs -s -p 4200",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:home": "node dist/home/server/server.mjs",
