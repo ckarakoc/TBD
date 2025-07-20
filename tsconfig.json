@@ -53,6 +53,18 @@
     },
     {
       "path": "./projects/main/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/app3/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/app3/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/app4/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/app4/tsconfig.spec.json"
     }
   ]
 }

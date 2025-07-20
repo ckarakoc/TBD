@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
-            "outputPath": "docs/app1",
+            "outputPath": "docs/app1/",
             "baseHref": "/TBD/app1/",
             "browser": "projects/app1/src/main.ts",
             "polyfills": [
@@ -110,7 +110,7 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
-            "outputPath": "docs/app2",
+            "outputPath": "docs/app2/",
             "baseHref": "/TBD/app2/",
             "browser": "projects/app2/src/main.ts",
             "polyfills": [
@@ -277,6 +277,180 @@
             ],
             "styles": [
               "projects/main/src/styles.scss"
+            ]
+          }
+        }
+      }
+    },
+    "app3": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/app3",
+      "sourceRoot": "projects/app3/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:application",
+          "options": {
+            "outputPath": "docs/app3/",
+            "baseHref": "/TBD/app3/",
+            "browser": "projects/app3/src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "projects/app3/tsconfig.app.json",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "projects/app3/public"
+              }
+            ],
+            "styles": [
+              "projects/app3/src/styles.css"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "4kB",
+                  "maximumError": "8kB"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular/build:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "app3:build:production"
+            },
+            "development": {
+              "buildTarget": "app3:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular/build:extract-i18n"
+        },
+        "test": {
+          "builder": "@angular/build:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "projects/app3/tsconfig.spec.json",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "projects/app3/public"
+              }
+            ],
+            "styles": [
+              "projects/app3/src/styles.css"
+            ]
+          }
+        }
+      }
+    },
+    "app4": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/app4",
+      "sourceRoot": "projects/app4/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:application",
+          "options": {
+            "outputPath": "docs/app4/",
+            "baseHref": "/TBD/app4/",
+            "browser": "projects/app4/src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "projects/app4/tsconfig.app.json",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "projects/app4/public"
+              }
+            ],
+            "styles": [
+              "projects/app4/src/styles.css"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "4kB",
+                  "maximumError": "8kB"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular/build:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "app4:build:production"
+            },
+            "development": {
+              "buildTarget": "app4:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular/build:extract-i18n"
+        },
+        "test": {
+          "builder": "@angular/build:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "projects/app4/tsconfig.spec.json",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "projects/app4/public"
+              }
+            ],
+            "styles": [
+              "projects/app4/src/styles.css"
             ]
           }
         }
