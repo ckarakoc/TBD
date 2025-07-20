@@ -3,6 +3,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "baseUrl": "./",
     "strict": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
@@ -13,7 +14,18 @@
     "experimentalDecorators": true,
     "importHelpers": true,
     "target": "ES2022",
-    "module": "preserve"
+    "module": "preserve",
+    "paths": {
+      "@app1/*": [
+        "projects/app1/src/app/*"
+      ],
+      "@app2/*": [
+        "projects/app2/src/app/*"
+      ],
+      "@main/*": [
+        "projects/main/src/app/*"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
@@ -25,16 +37,22 @@
   "files": [],
   "references": [
     {
-      "path": "./projects/home/tsconfig.app.json"
-    },
-    {
-      "path": "./projects/home/tsconfig.spec.json"
-    },
-    {
       "path": "./projects/app1/tsconfig.app.json"
     },
     {
       "path": "./projects/app1/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/app2/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/app2/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/main/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/main/tsconfig.spec.json"
     }
   ]
 }

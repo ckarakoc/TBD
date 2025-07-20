@@ -1,19 +1,36 @@
-$projects = Get-ChildItem -Directory .\docs\
+$ErrorActionPreference = "Stop"
 
-foreach ($project in $projects) {
-    $browserPath = Join-Path $project.FullName "browser"
+$docsRoot = Resolve-Path .\docs
+$projects = Get-ChildItem -Directory $docsRoot
 
-    if (Test-Path $browserPath) {
-        Write-Host "Flattening $browserPath → $($project.FullName)"
+foreach ($project in $projects)
+{
+  $browserPath = Join-Path $project.FullName "browser"
+  $finalFolderName = Split-Path $project.FullName -Leaf
 
-        robocopy $browserPath $project.FullName /MOVE /E > $null
+  if (Test-Path $browserPath)
+  {
+    Write-Host "Flattening $browserPath to $( $project.FullName )"
 
-        # Copy index.html to 404.html inside final folder
-        $index = Join-Path $project.FullName "index.html"
-#        $errorActionPreference = "SilentlyContinue"
-        Copy-Item $index (Join-Path $project.FullName "404.html") -Force
-#        $errorActionPreference = "Continue"
+    robocopy $browserPath $project.FullName /MOVE /E | Out-Null
 
-        Write-Host "Copied index.html to 404.html in $($project.FullName)"
+    $index = Join-Path $project.FullName "index.html"
+	if (Test-Path $index) {
+      Copy-Item $index (Join-Path $project.FullName "404.html") -Force
+	  Write-Host "Copied index.html to 404.html in $( $project.FullName )"
+	} else {
+	  Write-Warning "index.html not found in $($project.FullName)"
+	}
+  }
+
+  if ($finalFolderName -eq 'main')
+  {
+    robocopy $project.FullName $docsRoot /E /MOVE | Out-Null
+    Write-Host "Copied everything from main folder to $docsRoot"
+	
+	if (Test-Path $project.FullName) {
+      Remove-Item -Path $project.FullName -Force -Recurse
+	  Write-Host "Deleted 'main' folder: $($project.FullName)"
     }
+  }
 }
