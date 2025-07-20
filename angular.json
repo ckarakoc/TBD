@@ -18,7 +18,7 @@
           "builder": "@angular/build:application",
           "options": {
             "outputPath": "docs/app1",
-            "baseHref": "/app1/",
+            "baseHref": "/FrontendMentorTBD/app1/",
             "browser": "projects/app1/src/main.ts",
             "polyfills": [
               "zone.js"
@@ -111,7 +111,7 @@
           "builder": "@angular/build:application",
           "options": {
             "outputPath": "docs/app2",
-            "baseHref": "/app2/",
+            "baseHref": "/FrontendMentorTBD/app2/",
             "browser": "projects/app2/src/main.ts",
             "polyfills": [
               "zone.js"
@@ -204,7 +204,7 @@
           "builder": "@angular/build:application",
           "options": {
             "outputPath": "docs/main/",
-            "baseHref": "/",
+            "baseHref": "/FrontendMentorTBD/",
             "browser": "projects/main/src/main.ts",
             "polyfills": [
               "zone.js"
